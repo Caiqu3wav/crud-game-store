@@ -6,7 +6,7 @@ const cors = require("cors");
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: "gloryboy163",
+    password: "password",
     database: "crudgames",
 });
 
@@ -23,6 +23,15 @@ app.post("/register", (req, res) =>{
    db.query(SQL, [name, cost, category], (err, result) =>{
     console.log(err);
    });
+});
+
+app.get("/getCards", (req, res) =>{
+    let SQL = "SELECT * FROM games";
+
+    db.query(SQL, (err, result) =>{
+        if(err) console.log(err)
+        else res.send(result);
+    });
 });
 
 app.listen(3003, () => {
