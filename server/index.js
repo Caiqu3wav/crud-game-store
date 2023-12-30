@@ -48,6 +48,15 @@ app.put("/edit", (req, res) =>{
     })
 });
 
+app.delete("/delete/:id", (req, res) =>{
+    const { id } = req.params;
+    let SQL = "DELETE FROM games WHERE idgames = ?";
+    db.query(SQL, [id], (err, result) =>{
+        if(err) console.log(err);
+        else res.send(result);
+    });
+});
+
 app.listen(3003, () => {
     console.log("O servidor está rodando na porta 3003");
 });

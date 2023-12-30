@@ -24,6 +24,7 @@ function App() {
     }).then((response) =>{
         console.log(response);
     });
+    window.location.reload();
   }; 
 
   useEffect(()=>{

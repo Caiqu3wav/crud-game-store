@@ -27,6 +27,12 @@ export default function FormDialog(props) {
         });
         handleClose();
     };
+
+    const handleDeleteGame = () => {
+        Axios.delete(`http://localhost:3003/delete/${editValues.id}`,);
+        handleClose(); 
+        window.location.reload();
+    };
   
     const handleClickOpen = () => {
         props.setOpen(true);
