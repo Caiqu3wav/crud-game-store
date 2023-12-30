@@ -41,11 +41,12 @@ function App() {
         <input type="text" name='category' placeholder='Categoria'  className='reg-input' onChange={handleChangeValues}/>
         <button className='reg-button' onClick={handleClickButton}>Cadastro</button>
       </div>
+
       {typeof listGames !== "undefined" && listGames.map((value) =>{
        return( <Card key={value.id} 
         listCard = {listGames} 
         setListCard = {setListGames} 
-        id = {value.id}
+        id = {value.idgames}
         name = {value.name}
         cost = {value.cost}
         category = {value.category}
